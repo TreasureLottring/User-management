@@ -1,0 +1,54 @@
+<form [formGroup]="signUpForm" (ngSubmit)="signUpUser()">
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName">
+      <div *ngIf="signUpForm.get('firstName')?.invalid && signUpForm.get('firstName')?.touched">
+        First Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="surname">Surname</label>
+      <input id="surname" formControlName="surname">
+      <div *ngIf="signUpForm.get('surname')?.invalid && signUpForm.get('surname')?.touched">
+        Surname is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="username">Username</label>
+      <input id="username" formControlName="username">
+      <div *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+        Username is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email">
+      <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+        <span *ngIf="signUpForm.get('email')?.hasError('required')">Email is required.</span>
+        <span *ngIf="signUpForm.get('email')?.hasError('email')">Invalid email format.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phoneNum">Phone Number</label>
+      <input id="phoneNum" formControlName="phoneNum">
+      <div *ngIf="signUpForm.get('phoneNum')?.invalid && signUpForm.get('phoneNum')?.touched">
+        Phone Number is required and must be 10 digits long.
+      </div>
+    </div>
+  
+    <div>
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password">
+      <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+        <span *ngIf="signUpForm.get('password')?.hasError('required')">Password is required.</span>
+        <span *ngIf="signUpForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</span>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+  </form>
+  
