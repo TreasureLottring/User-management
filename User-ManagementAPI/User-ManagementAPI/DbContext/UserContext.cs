@@ -7,6 +7,6 @@ namespace User_ManagementAPI.Data
     {
         public UserContext(DbContextOptions<UserContext> options) : base(options) { }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
