@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace User_ManagementAPI.Model
 {
     [Table("Users")]
-    public class User
+    public class Users
     {
         [Key]
         public int Id { get; set; }

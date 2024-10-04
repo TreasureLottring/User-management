@@ -19,7 +19,7 @@ namespace User_ManagementAPI.Controllers
 
         // POST: api/user/register
         [HttpPost("register")]
-        public async Task<ActionResult<User>> RegisterUser( User user)
+        public async Task<ActionResult<Users>> RegisterUser( Users user)
         {
             if (ModelState.IsValid)
             {

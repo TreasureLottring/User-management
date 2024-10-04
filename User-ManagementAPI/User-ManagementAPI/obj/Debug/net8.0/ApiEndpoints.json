@@ -9,13 +9,13 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "User_ManagementAPI.Model.User",
+        "Type": "User_ManagementAPI.Model.Users",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "User_ManagementAPI.Model.User",
+        "Type": "User_ManagementAPI.Model.Users",
         "MediaTypes": [
           "text/plain",
           "application/json",

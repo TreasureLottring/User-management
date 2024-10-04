@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent {
     private fb: FormBuilder,
     private userService: UserService,  // Correct service name case
     private toastr: ToastrService,
-    public dialogRef: MatDialogRef<SignUpComponent>
+    private router: Router,
   ) {
     this.signUpForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -57,7 +58,13 @@ export class SignUpComponent {
         (response: any) => {
           console.log('User has successfully registered', response);
           this.toastr.success(formData.firstName + ' has successfully registered!');
-          this.dialogRef.close();  // Close the dialog after success
+
+          this.router.navigate(['/profile-settings']).then(success => {
+            console.log('Navigation success:', success);
+          }).catch(error => {
+            console.error('Navigation error:', error);
+          });
+
         },
         (error: any) => {
           console.error('Error during registration', error);

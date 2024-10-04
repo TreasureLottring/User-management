@@ -8,10 +8,13 @@ import { Users } from '../Model/user';
 })
 export class UserService {
 
-  private URL = '';
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:5110/api/User';  // Update with your actual API URL
 
-  RegisterUser(user: any): Observable<Users> {
-    return this.http.post<Users>(this.URL, user);
+  constructor(private http: HttpClient) { }
+
+  RegisterUser(userData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/register`, userData);
   }
+
+  // http://localhost:5110/api/User/register
 }
