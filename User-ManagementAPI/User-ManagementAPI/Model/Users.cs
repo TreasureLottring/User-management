@@ -34,12 +34,12 @@ namespace User_ManagementAPI.Model
         [MinLength(6)]
         public string Password { get; set; }
 
-        public static string HashPassword(string Password)
-        {
-            SHA1CryptoServiceProvider obj = new SHA1CryptoServiceProvider();
-            byte[] pass = Encoding.ASCII.GetBytes(Password);
-            byte[] pass1 = obj.ComputeHash(pass);
-            return Convert.ToBase64String(pass1);
-        }
+        //public static string HashPassword(string Password)
+        //{
+        //    SHA1CryptoServiceProvider obj = new SHA1CryptoServiceProvider();
+        //    byte[] pass = Encoding.ASCII.GetBytes(Password);
+        //    byte[] pass1 = obj.ComputeHash(pass);
+        //    return Convert.ToBase64String(pass1);
+        //}
     }
 }

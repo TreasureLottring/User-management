@@ -1,0 +1,28 @@
+.settings-container {
+  display: flex;
+}
+
+.settings-sidebar {
+  width: 200px; /* Adjust as needed */
+  background: #f4f4f4; /* Light background */
+}
+
+.settings-sidebar ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.settings-sidebar li {
+  padding: 10px;
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.settings-sidebar li.active {
+  background-color: #007bff; /* Highlight active link */
+  color: white; /* Text color for active link */
+}
+
+.settings-content {
+  flex-grow: 1; /* Take the remaining space */
+  padding: 20px; /* Add some padding */
+}

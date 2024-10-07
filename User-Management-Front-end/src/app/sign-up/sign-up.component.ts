@@ -17,7 +17,6 @@ export class SignUpComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,  // Correct service name case
-    private toastr: ToastrService,
     private router: Router,
   ) {
     this.signUpForm = this.fb.group({
@@ -57,23 +56,21 @@ export class SignUpComponent {
       this.userService.RegisterUser(info).subscribe(
         (response: any) => {
           console.log('User has successfully registered', response);
-          this.toastr.success(formData.firstName + ' has successfully registered!');
+          // this.toastr.success(formData.firstName + ' has successfully registered!');
 
-          this.router.navigate(['/profile-settings']).then(success => {
-            console.log('Navigation success:', success);
-          }).catch(error => {
-            console.error('Navigation error:', error);
-          });
+          this.userService.setUser(response.user);
+          
+          this.router.navigate(['/profile-settings']);
 
         },
         (error: any) => {
           console.error('Error during registration', error);
-          this.toastr.error('There was an error during registration. Please try again.');
+          // this.toastr.error('There was an error during registration. Please try again.');
         }
       );
     } else {
       // Show error if the form is invalid
-      this.toastr.error('Please fill in all the required fields correctly.');
+      // this.toastr.error('Please fill in all the required fields correctly.');
     }
   }
 }

@@ -10,23 +10,28 @@ import { ToastrModule } from 'ngx-toastr'; // Import ToastrModule
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 import { RouterModule } from '@angular/router';
+import { PersonalDetailsComponent } from './profile-settings/personal-details/personal-details.component';
+import { SecuritySettingsComponent } from './profile-settings/security-settings/security-settings.component';
+import { AddressBookComponent } from './profile-settings/address-book/address-book.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    ProfileSettingsComponent
+    ProfileSettingsComponent,
+    AddressBookComponent,
+    PersonalDetailsComponent,
+    SecuritySettingsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,
     ReactiveFormsModule,
-    MatDialogModule,
-    BrowserAnimationsModule, // Add this line
-    ToastrModule.forRoot() // Add this line
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

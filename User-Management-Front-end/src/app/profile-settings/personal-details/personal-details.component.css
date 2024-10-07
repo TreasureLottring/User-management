@@ -1,0 +1,25 @@
+.banner {
+    border: 1px solid #007bff; /* Adjust border color */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f0f8ff; /* Light background for banners */
+  }
+  
+  .banner input {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    margin-left: 10px; /* Space between input and button */
+  }
+  

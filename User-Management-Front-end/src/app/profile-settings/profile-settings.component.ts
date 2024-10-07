@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Users } from '../Model/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profile-settings',
@@ -9,4 +11,18 @@ import { Component } from '@angular/core';
 
 export class ProfileSettingsComponent {
 
+
+  currentUser: Users | null = null;
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    });
+  }
+
+  onLogout() {
+    this.userService.logout();
+  }
 }

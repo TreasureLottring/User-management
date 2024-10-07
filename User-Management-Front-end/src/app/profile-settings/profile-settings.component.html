@@ -1,1 +1,24 @@
-<p>profile-settings works!</p>
+<div class="settings-container">
+    <div class="settings-sidebar">
+      <ul>
+        <li routerLink="personal-details" routerLinkActive="active">Personal Details</li>
+        <li routerLink="security-settings" routerLinkActive="active">Security Settings</li>
+        <li routerLink="address-book" routerLinkActive="active">Address Book</li>
+      </ul>
+    </div>
+    <div *ngIf="currentUser">
+      <h2>Welcome, {{ currentUser.firstName }} {{ currentUser.surname }}</h2>
+      <p>Email: {{ currentUser.email }}</p>
+      <p>Phone Number: {{ currentUser.PhoneNum }}</p>
+      
+      <!-- Add a logout button -->
+      
+    </div>
+
+    <button (click)="onLogout()">Logout</button>
+      
+    <div class="settings-content">
+      <router-outlet></router-outlet> <!-- This is where child components will be displayed -->
+    </div>
+  </div>
+  <!-- <div role="button" class="button-banner" id="Your Name_button" data-ref="Your Name-button" tabindex="0"></div> -->

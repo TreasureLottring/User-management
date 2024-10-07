@@ -1,0 +1,62 @@
+<div *ngIf="user">
+  <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmitPersonalDetails()">
+    
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input
+        id="firstName"
+        formControlName="firstName"
+        type="text"
+        *ngIf="editingField === 'firstName'; else firstNameDisplay"
+      />
+      <ng-template #firstNameDisplay>
+        <span (click)="onEdit('firstName')">{{ user.firstName }}</span>
+      </ng-template>
+    </div>
+
+    <div class="form-group">
+      <label for="surname">Surname:</label>
+      <input
+        id="surname"
+        formControlName="surname"
+        type="text"
+        *ngIf="editingField === 'surname'; else surnameDisplay"
+      />
+      <ng-template #surnameDisplay>
+        <span (click)="onEdit('surname')">{{ user.surname }}</span>
+      </ng-template>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        *ngIf="editingField === 'email'; else emailDisplay"
+      />
+      <ng-template #emailDisplay>
+        <span (click)="onEdit('email')">{{ user.email }}</span>
+      </ng-template>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNum">Phone Number:</label>
+      <input
+        id="phoneNum"
+        formControlName="phoneNum"
+        type="text"
+        *ngIf="editingField === 'phoneNum'; else phoneNumDisplay"
+      />
+      <ng-template #phoneNumDisplay>
+        <span (click)="onEdit('phoneNum')">{{ user.PhoneNum }}</span>
+      </ng-template>
+    </div>
+
+    <button type="submit" [disabled]="personalDetailsForm.invalid">Save Changes</button>
+  </form>
+</div>
+
+<div *ngIf="!user">
+  <p>No user logged in. Please log in to view your details.</p>
+</div>
